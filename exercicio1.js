@@ -7,7 +7,7 @@ let alturas = [];
 let sexos = [];
 
 // Coletando dados com for para  obter 15 valores
-for (let i = 0; i < 15; i++) {
+for (let i = 0; i < 3; i++) {
   let altura = parseFloat(prompt("Digite sua altura (em centimetros): "));
   let sexo = prompt("Digite seu sexo (M/F): ").toUpperCase();
 
@@ -22,7 +22,7 @@ let numeroHomens = 0;
 let numeroMulheres = 0;
 
 //  Percorrendo o array de sexos para contar quantos são homens e mulheres
-for (let i = 0; i < 15; i++) {
+for (let i = 0; i < 3; i++) {
 if (sexos[i] === "M") {
     somaAlturaHomens += alturas[i];
     numeroHomens++;
@@ -33,5 +33,11 @@ if (sexos[i] === "M") {
 let mediaAlturaHomens = (somaAlturaHomens / numeroHomens);
 alert("A maior altura é "+maiorAltura);
 alert("A menor altura é "+menorAltura);
-alert("Média de altura dos homens: "+ mediaAlturaHomens + " centimetros");
-alert("Número de mulheres:"+ numeroMulheres);
+if (numeroHomens == 0) {
+  alert("Não há homens no grupo");
+}else {
+  alert("A média de altura dos homens é de "+(mediaAlturaHomens).toFixed(2)+" cm");
+}
+
+
+alert("Número de mulheres: "+ numeroMulheres);
