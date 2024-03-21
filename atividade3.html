@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soma de Valores</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    #form-container {
+        text-align: center;
+    }
+    #values-list {
+        list-style: none;
+        padding: 0;
+    }
+</style>
+</head>
+<body>
+
+<div id="form-container">
+    <h2>Adicione Valores Inteiros</h2><br><br>
+    <form id="value-form">
+        <input type="number" id="input-value" placeholder="Digite um valor inteiro">
+        <br><br><br><br>
+        <button type="button" onclick="adicionar()">Adicionar</button>
+        <button type="button" onclick="somar()">Somar</button>
+        <button type="button" onclick="limpar()">Limpar Valores</button>
+    </form>
+
+    <ul id="values-list"></ul>
+
+    <p id="sum-result"></p>
+</div>
+
+<script>
+    let values = [];
+
+    function adicionar() {
+        const inputValue = document.getElementById("input-value").value;
+        if (inputValue !== "") {
+            values.push(parseInt(inputValue));
+            displayValues();
+        } else {
+            alert("Por favor, insira um valor inteiro.");
+        }
+    }
+
+    function displayValues() {
+        const valuesList = document.getElementById("values-list");
+        valuesList.innerHTML = "";
+        values.forEach(value => {
+            const li = document.createElement("li");
+            li.textContent = value;
+            valuesList.appendChild(li);
+        });
+    }
+
+    function somar() {
+        const sum = values.reduce((acc, currentValue) => acc + currentValue, 0);
+        document.getElementById("sum-result").textContent = `A soma dos valores é: ${sum}`;
+    }
+
+    function limpar() {
+        values = [];
+        document.getElementById("values-list").innerHTML = "";
+        document.getElementById("sum-result").textContent = "";
+    }
+</script>
+</body>
+</html>
