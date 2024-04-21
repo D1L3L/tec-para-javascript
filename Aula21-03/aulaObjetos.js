@@ -10,7 +10,7 @@ var aluno = {
     endereco: {
         rua: "Av. Manaíra, 464",
         bairro: "Manaíra",
-        cidade:"João Pessoa"
+        cidade:"João Pessoa",
     },
     estaRegular: function() {return true;}
 }
